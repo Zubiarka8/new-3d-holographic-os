@@ -1,0 +1,78 @@
+# Dependencies and Node / Vite / TypeScript outputs
+node_modules/
+dist/
+dist-ssr/
+coverage/
+.vite/
+.cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# Playwright: reports, traces and private sessions; keep tests and baselines
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+# Local reports and diagnostics (not shared documentation)
+reports/local/
+artifacts/local/
+*.log
+*.cpuprofile
+*.heapprofile
+*.heapsnapshot
+
+# Variables and credentials; only examples without secrets are shareable
+.env
+.env.*
+!.env.example
+.npmrc.local
+credentials.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+.aws/
+.ssh/
+.secrets/
+
+# Private Codex state; do not exclude all of .codex/ or .agents/
+.codex/auth.json
+.codex/config.local.toml
+.codex/sessions/
+.codex/log/
+.codex/tmp/
+.codex/history.jsonl
+.codex/state*.sqlite*
+.agents/private/
+
+# Operating system, personal IDE and temporary files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+.tmp/
+tmp/
+
+# Keep lockfiles, shared configs, assets and reference captures.
+
+# Browser failure traces are local; keep reviewed screenshots as evidence.
+artifacts/test-results/
+
+# AI references that contain a previous project name; not versioned, regenerate with PROMPTS.md
+assets/references/*.png
+.claude/settings.local.json

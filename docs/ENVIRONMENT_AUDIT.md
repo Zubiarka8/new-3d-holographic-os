@@ -1,0 +1,38 @@
+# Environment audit — 2026-10-16
+
+This audit corresponds to the build task that followed the bootstrap. The historical documentation in `TOOLING_AUDIT.md` keeps the earlier blockers; it does not necessarily describe the current state. Available, configured and executed are different states.
+
+| Capability           | Current evidence                                                                                                            | Status / limit                                                                                                          |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Agent                | Codex session and `codex --version`: `codex-cli 0.163.0`                                                                    | Verified; not a Cursor or Claude Code session                                                                           |
+| System / terminal    | `sw_vers`: macOS 27.0, build 26A428; `uname -m`: arm64; shell `/bin/zsh`                                                    | Verified                                                                                                                |
+| Runtime              | Node v24.12.0, npm 11.6.2, Git 2.54.0, gh 2.101.0                                                                           | Version commands executed                                                                                               |
+| Utilities            | `python3`, `rg`, `git`, `gh`, `node`, `npm` found on PATH                                                                   | Their presence does not prove access to services                                                                        |
+| Permissions          | Sandbox with write access to the project and temp folders; `.git`, `.agents`, `.codex`, `.aws` have additional restrictions | Network and sensitive changes subject to approval; no global settings were altered                                      |
+| Git                  | GitHub remote `Zubiarka8/new-3d-holographic-os`; implementation published on `main`                                         | Git operational; Pages site deployed                                                                                    |
+| Skills               | Session catalog and local folders inventoried; `skill-creator` read                                                         | Five own packages installed in `.agents/skills/` through approved writes; they appear in this session's updated catalog |
+| Hooks                | `codex features list`: `hooks stable true`; global keys inventoried: SessionStart, Stop, SubagentStop                       | Global hooks intact; local PostToolUse installed and handler tested; automatic loading by event not observed            |
+| Multi-agent          | `multi_agent stable true`; collaboration API available; subagent tooling executed                                           | Real delegation with file boundaries, see `MULTI_AGENT.md`                                                              |
+| Declared MCP         | TOML metadata: `obscura` and `node_repl`, stdio and enabled                                                                 | Configured; no handshake is inferred from the configuration                                                             |
+| Session integrations | GitHub, web search, image generation, image inspection and computer use exposed in the tool catalog                         | Web and shell executed for this audit; each graphical validation is recorded separately                                 |
+| Browser              | Computer use and obscura APIs exposed; Playwright not found as a global executable                                          | Local Playwright Test with WebKit installed and executed, 10 tests passed                                               |
+| Chrome               | Express restriction of the contract                                                                                         | Not authorized, not opened or controlled                                                                                |
+| Offline GLSL         | `glslangValidator` not found on PATH                                                                                        | Real validation through WebGL compilation in the browser; the Vite build alone does not validate GLSL                   |
+| Figma                | No Figma tools in the current catalog                                                                                       | No design file or authentication provided; not connected                                                                |
+| AI images            | `image_gen.imagegen` exposed                                                                                                | Five real references generated, saved and inspected in assets/references/                                               |
+
+No credentials were read and no private endpoints were copied. Only names, activation booleans and transport types of the global configuration were inspected.
+
+## Installed plugins and skills
+
+The configuration declares active plugins for Codex tools, browser/computer use, code review and `hodios-software-engineering`, as well as existing Warp and C/Rust LSP integrations. These are configuration declarations, not proof that they work. They do not provide a required production dependency. Sites, documents, presentations, mascots and visualize appear disabled in that configuration; the exposure of tools in the session may differ. No plugin was changed.
+
+The local catalog includes `skill-creator`, `skill-installer`, `openai-docs`, `imagegen`, and skills for automation, hooks, subagents and review; the engineering plugin covers accessibility, components, testing and web performance. No installed specialization for Three.js/GLSL/particles was found. Precise own instructions are created without installing unknown packs. Inventorying a skill does not mean all its scripts have been audited.
+
+## Sources and configuration
+
+The [Codex documentation on skills](https://learn.chatgpt.com/docs/build-skills) confirms `SKILL.md` with frontmatter and discovery under `.agents/skills`. The five packages are already registered in `.agents/skills/`; the session's updated catalog lists their names and real paths. The [hooks documentation](https://learn.chatgpt.com/docs/hooks) confirms project files in `.codex` and the trust requirement. The integrator manages the local installation through sandbox approval; activation is not inferred from a template. MCP decisions and alternatives are in [TOOLING_MATRIX.md](TOOLING_MATRIX.md); the final application tests are in `ACCEPTANCE.md` and `PERFORMANCE.md`.
+
+## Close-out verification
+
+Playwright Test 1.64.1 with WebKit 27.2 installed and executed: 10 tests passed, desktop/mobile captures and real WebGL compilation. Imagegen produced five local PNGs that were inspected. Five skills copied to `.agents/skills/` through write approval; their names were visible in the subagent's updated catalog. PostToolUse hook installed in `.codex/hooks.json` with approval; handler tested through test stdin, automatic loading pending a new trusted session. Commands and metrics: ACCEPTANCE.md and PERFORMANCE.md. The changes were published on `main` and GitHub Pages was deployed.

@@ -1,0 +1,19 @@
+# INACTIVE template: Codex does not load files from docs/codex/.
+# Fields checked against the official Codex CLI 0.163.0 schema.
+# When .codex is writable, review and merge into .codex/config.toml.
+# Do not replace existing files or change global trust automatically.
+# Both servers remain disabled; there are no tokens or expanded permissions.
+
+[mcp_servers.holographicOsOpenaiDocs]
+url = "https://developers.openai.com/mcp"
+enabled = false
+
+[mcp_servers.holographicOsPlaywright]
+command = "npx"
+args = ["--yes", "@playwright/mcp@0.0.83", "--browser", "firefox", "--isolated", "--headless"]
+enabled = false
+
+# Before enabling Playwright: review the package and its dependencies, install the
+# compatible browser and test the MCP handshake. The pin does not fix transitive
+# dependencies; when incorporating local tooling, use an exact dependency with a lockfile.
+# It does not use an extension, CDP or personal profiles. It does not enable Chrome.

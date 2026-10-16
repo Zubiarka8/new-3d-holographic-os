@@ -1,0 +1,35 @@
+{
+  "name": "new-3d-holographic-os",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests playwright.config.ts",
+    "format": "prettier --write src tests scripts package.json tsconfig.json index.html playwright.config.ts vite.config.ts eslint.config.js",
+    "format:check": "prettier --check src tests scripts package.json tsconfig.json index.html playwright.config.ts vite.config.ts eslint.config.js",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "playwright test",
+    "test:e2e": "playwright test tests/interactions.spec.ts",
+    "test:visual": "playwright test tests/visual.spec.ts",
+    "check": "npm run format:check && npm run lint && npm run build",
+    "quality:file": "npm run format:check && npm run lint && npm run typecheck",
+    "quality:shader": "npm run build && npm run test:visual",
+    "quality:precommit": "npm run check && npm test && node scripts/check-sensitive.mjs",
+    "quality:completion": "npm run quality:precommit"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/three": "0.186.0",
+    "typescript": "6.0.3",
+    "vite": "8.3.4",
+    "eslint": "10.12.0",
+    "typescript-eslint": "8.71.2",
+    "prettier": "3.9.10"
+  }
+}

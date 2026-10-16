@@ -1,0 +1,18 @@
+{
+  "result": {
+    "ready": "true",
+    "fps": "60",
+    "calls": "23",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "dpr": 1,
+    "canvasSize": [
+      786,
+      678
+    ]
+  },
+  "errors": []
+}

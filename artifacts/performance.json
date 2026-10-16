@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-16T12:44:36.601Z",
+  "hardware": "Apple M4",
+  "os": "27.0",
+  "browser": "27.2",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+  "viewport": {
+    "width": 1440,
+    "height": 1000,
+    "dpr": 1
+  },
+  "method": "WebKit headless; 2s warmup + 5s requestAnimationFrame intervals per mode; no screenshots/traces during samples; RAF is scheduling, not GPU timing.",
+  "samples": [
+    {
+      "mode": "STANDBY",
+      "frames": {
+        "frameCount": 300,
+        "meanMs": 16.67,
+        "p50Ms": 17,
+        "p95Ms": 18,
+        "fps": 59.98800239952009
+      },
+      "renderer": {
+        "fps": "60",
+        "drawCalls": "23",
+        "particles": "1,500",
+        "quality": "ADAPTIVE",
+        "canvas": [
+          786,
+          678
+        ]
+      }
+    },
+    {
+      "mode": "ANALYSIS",
+      "frames": {
+        "frameCount": 300,
+        "meanMs": 16.663333333333334,
+        "p50Ms": 17,
+        "p95Ms": 18,
+        "fps": 60.01200240048009
+      },
+      "renderer": {
+        "fps": "60",
+        "drawCalls": "23",
+        "particles": "1,500",
+        "quality": "ADAPTIVE",
+        "canvas": [
+          786,
+          678
+        ]
+      }
+    },
+    {
+      "mode": "OVERDRIVE",
+      "frames": {
+        "frameCount": 300,
+        "meanMs": 16.67,
+        "p50Ms": 17,
+        "p95Ms": 18,
+        "fps": 59.98800239952009
+      },
+      "renderer": {
+        "fps": "60",
+        "drawCalls": "23",
+        "particles": "1,500",
+        "quality": "ADAPTIVE",
+        "canvas": [
+          786,
+          678
+        ]
+      }
+    }
+  ]
+}
